@@ -1,145 +1,126 @@
 # hmz-digiminds-ceo
-Paperclip AI — permanent autonomous CEO of DigiMinds agency. 50 agents, 20 goals, 28 KPIs, 6 scheduled engines, port 3100. Zero daily human input.
+DigiMinds Global AI CEO — autonomous business operations, client pipeline, and growth automation.
 
-![api](https://img.shields.io/badge/API-127.0.0.1%3A3100-green?style=flat&labelColor=555) ![agents](https://img.shields.io/badge/agents-50_deployed-blue?style=flat&labelColor=555) ![goals](https://img.shields.io/badge/goals-20_active-orange?style=flat&labelColor=555) ![kpis](https://img.shields.io/badge/KPIs-28_tracked-red?style=flat&labelColor=555) [![company](https://img.shields.io/badge/DigiMinds-digiminds.org-white?style=flat&labelColor=555)](https://digiminds.org)
+![ceo](https://img.shields.io/badge/role-AI_CEO-orange?style=flat&labelColor=555)
+![company](https://img.shields.io/badge/company-DigiMinds_Global-blue?style=flat&labelColor=555)
+![status](https://img.shields.io/badge/status-live-green?style=flat&labelColor=555)
+![endpoint](https://img.shields.io/badge/endpoint-127.0.0.1%3A3100-lightgrey?style=flat&labelColor=555)
+![license](https://img.shields.io/badge/license-MIT-blue?style=flat&labelColor=555)
 
-[Concepts](#-concepts) · [Hot](#-hot) · [Architecture](#️-architecture) · [Authority](#authority-matrix) · [Tips](#-tips-and-tricks-26) · [Replaced](#️-startups--businesses) · [Stars](#star-history)
-
----
+[Concepts](#-concepts) · [Architecture](#️-architecture) · [Tips](#-tips-and-tricks-22) · [Kills](#️-startups--businesses) · [Stars](#star-history)
 
 ## 🧠 CONCEPTS
 
 | Feature | Location | Description |
 |---------|----------|-------------|
-| [**Paperclip API**](http://127.0.0.1:3100/api) | `http://127.0.0.1:3100/api` | Central command — all 50 agents read/write state here. Company: `c5066522-bacc-4a28-b700-6590cbe366ec` |
-| [**CEO Loop**](https://github.com/hmzainjamil/hmz-paperclip-ceo-loop) | `ai.hmz.paperclip.plist` | Every 6h: reviews goals → re-assigns agents → logs decisions → escalates critical-only to HMZ |
-| [**Lead Engine**](https://github.com/hmzainjamil/hmz-paperclip-lead-engine) | `ai.hmz.paperclip-lead-engine.plist` | Daily 7:30 AM: Apollo+LinkedIn → enrich → ICP score → CRM. Geo blacklist enforced |
-| [**Content Engine**](https://github.com/hmzainjamil/hmz-paperclip-content-engine) | `ai.hmz.paperclip-content-engine.plist` | Daily 8:00 AM: trends → angle → generate → quality gate → LinkedIn scheduled 10 AM |
-| [**Intel Engine**](https://github.com/hmzainjamil/hmz-paperclip-intel-engine) | `ai.hmz.paperclip-intel-engine.plist` | Daily 10:00 AM: Meta Ad Library + LinkedIn + Clutch → competitor brief |
-| [**KPI Monitor**](https://github.com/hmzainjamil/hmz-paperclip-kpi-monitor) | `ai.hmz.paperclip-kpi-monitor.plist` | Daily 6:00 PM: 28 KPIs, RED = CEO escalation |
-| [**Trends Scanner**](https://github.com/hmzainjamil/hmz-paperclip-trends-scanner) | `ai.hmz.paperclip-trends-scanner.plist` | Mon/Wed/Fri 6 AM: platform changes, market signals |
-| [**HMZ Board Authority**](agents/authority.md) | `agents/authority.md` | HMZ = irreplaceable founder. Budget <$500 = autonomous. $500-2K = propose. >$2K = HMZ only |
+| [**CEO Loop**](ceo-loop/main.js) | `ceo-loop/main.js` | Autonomous decision engine — monitors KPIs, triggers actions, runs 24/7 [![live](https://img.shields.io/badge/status-live-green?style=flat&labelColor=555)] |
+| [**Client Pipeline**](pipeline/client-tracker.js) | `pipeline/client-tracker.js` | Tracks leads → proposals → retainers — LinkedIn + Indeed sources only |
+| [**BDM Outreach**](outreach/bdm.js) | `outreach/bdm.js` | Automated outreach sequences — personalized cover letters per prospect |
+| [**PDF Audit Engine**](audits/pdf-engine.py) | `audits/pdf-engine.py` | ReportLab 11-page 360° audits — brand palette from client URL |
+| [**KPI Monitor**](monitoring/kpi.js) | `monitoring/kpi.js` | Real-time metrics — ROAS, CPL, CTR, conversion rate tracking |
+| [**Content Engine**](content/engine.js) | `content/engine.js` | LinkedIn posts, case studies, Reddit (1/day max throttle) |
+| [**Competitor Intel**](intel/competitor.js) | `intel/competitor.js` | Weekly scrape of competitor pricing, services, reviews |
+| [**Proposal Generator**](proposals/generator.py) | `proposals/generator.py` | Per-prospect PDF proposals with business name + brand palette |
+| [**Email Sequences**](emails/sequences.js) | `emails/sequences.js` | Cold outreach → follow-up → close — B2B digital marketing focus |
+| [**Revenue Tracker**](finance/revenue.js) | `finance/revenue.js` | MRR, ARR, pipeline value tracking — feeds CEO Loop decisions |
+| [**Paperclip Integration**](paperclip/sync.js) | `paperclip/sync.js` | DigiMinds instance of Paperclip AI OS — company ID c5066522 |
 
 ### 🔥 Hot
 
 | Feature | Location | Description |
 |---------|----------|-------------|
-| [**Real-time decisions log**](http://127.0.0.1:3100/api/decisions) | `GET /api/decisions?date=today` | See what the CEO decided in the last 24h — full audit trail |
-| [**Manual CEO trigger**](http://127.0.0.1:3100/api/ceo-loop/trigger) | `POST /api/ceo-loop/trigger` | Force immediate CEO review without waiting 6h |
-| [**Agent health dashboard**](http://127.0.0.1:3100/api/agents) | `GET /api/agents` | Live status of all 50 agents — last run, output quality, assignment |
-
----
+| [**Geo Blacklist Filter**](filters/geo-blacklist.js) | `filters/geo-blacklist.js` | Blocks India, Pakistan, Bangladesh, Philippines, Israel from client targeting |
+| [**Platform Filter**](filters/platform.js) | `filters/platform.js` | LinkedIn + Indeed only — Upwork, Freelancer.com, PeoplePerHour permanently removed |
+| [**Auto Troubleshoot**](ops/troubleshoot.sh) | `ops/troubleshoot.sh` | SessionStart check — verifies CEO loop running, LaunchAgents healthy |
 
 ## ⚙️ ARCHITECTURE
 
 ```
-HMZ (Founder / Board)
-  └── escalation only, final authority on budget >$2K
-
-Paperclip AI CEO (localhost:3100)
-  ├── CEO Loop (every 6h)
-  │     reviews: 20 goals · 50 agents · 28 KPI tasks
-  │     decides: reassign · reprioritize · escalate
-  │
-  ├── Lead Engine    (7:30 AM) → CRM
-  ├── Content Engine (8:00 AM) → LinkedIn
-  ├── Intel Engine   (10:00 AM) → CEO context
-  ├── KPI Monitor    (6:00 PM) → CEO alerts
-  └── Trends Scanner (Mon/Wed/Fri 6AM) → CEO context
-
-Agent Divisions (50 total):
-  BDM(8) Content(7) PPC(9) SEO/GEO(6)
-  Ops(6) Intel(5)  Finance(5) Client(4)
+DigiMinds AI CEO OS
+  ┌─────────────────────────────────────┐
+  │  Paperclip AI (127.0.0.1:3100)      │
+  │  Company: c5066522-bacc-4a28-...    │
+  │                                     │
+  │  CEO Loop (24/7 daemon)             │
+  │    ├─ Morning: KPI review           │
+  │    ├─ Daytime: BDM outreach         │
+  │    ├─ Evening: content posting      │
+  │    └─ Night: competitor intel       │
+  └─────────────────────────────────────┘
+          │
+          ▼
+  Tool Layer (Tier 0 models)
+    ├─ Groq → analysis
+    ├─ Gemini → research
+    ├─ DeepSeek → code/proposals
+    └─ GPT-4o-mini → content
 ```
 
----
+| Module | Frequency | Model | Output |
+|--------|-----------|-------|--------|
+| KPI Monitor | Hourly | Groq | Slack alert if metric drops |
+| BDM Outreach | 08:00 daily | GPT-4o-mini | 3-5 personalized messages |
+| Content Engine | 10:00 daily | Gemini | LinkedIn post + Reddit (throttled) |
+| Competitor Intel | Weekly Sun | DeepSeek | Competitor report PDF |
+| Audit Generator | On-demand | ReportLab | 11-page PDF per prospect |
+| CEO Loop | Continuous | Groq | Decision log + actions |
 
-<a id="authority-matrix"></a>
+## 💡 TIPS AND TRICKS (22)
 
-## ⚖️ AUTHORITY MATRIX
+[ops](#tips-ops) · [bdm](#tips-bdm) · [content](#tips-content) · [reports](#tips-reports)
 
-| Decision | Authority | Escalation |
-|----------|-----------|------------|
-| Task assignment | Paperclip (autonomous) | Never |
-| Agent redeployment | Paperclip (autonomous) | Never |
-| Budget <$500 | Paperclip (autonomous) | Never |
-| Budget $500-$2K | Paperclip proposes → HMZ approves | HMZ |
-| Budget >$2K | HMZ only | Always |
-| New service launch | HMZ only | Always |
-| Client contracts | HMZ only | Always |
-
----
-
-## 💡 TIPS AND TRICKS (26)
-
-[CEO Ops](#tips-ceo) · [API](#tips-api) · [Engines](#tips-eng) · [Agents](#tips-agents) · [Debug](#tips-debug)
-
-<a id="tips-ceo"></a>■ **CEO Operations (6)**
+<a id="tips-ops"></a>■ **Operations (6)**
 
 | Tip | Source |
 |-----|--------|
-| Check `/api/decisions?date=today` every morning — see what Paperclip decided overnight | [Transparency](http://127.0.0.1:3100) |
-| All 6 engines report to CEO loop — it's the master context for the full agency | [Architecture](agents/) |
-| CEO loop is idempotent — safe to trigger multiple times without duplicate actions | [Design](agents/ceo-loop.md) |
-| `launchctl list \| grep paperclip` — verify CEO daemon running at session start | [Startup check](../claude-ai-system/automations/bin/auto-troubleshoot) |
-| CEO decisions are time-stamped + logged — full audit trail in `/api/decisions` | [Compliance](http://127.0.0.1:3100) |
-| HMZ overrides any CEO decision via `POST /api/decisions/override` | [Authority](agents/authority.md) |
+| CEO loop at 127.0.0.1:3100 — always verify running before session with `curl localhost:3100/health` | [HMZ](https://github.com/hmzainjamil) |
+| Company ID `c5066522-bacc-4a28-b700-6590cbe366ec` — required for all Paperclip API calls | [HMZ](https://github.com/hmzainjamil) |
+| LaunchAgent `KeepAlive=true` — CEO loop restarts within 10s of any crash | [HMZ](https://github.com/hmzainjamil) |
+| `auto-troubleshoot` SessionStart hook verifies CEO loop before every Claude session | [HMZ](https://github.com/hmzainjamil) |
+| All files saved to ~/Downloads — never Desktop (enforced across all PDF engines) | [HMZ](https://github.com/hmzainjamil) |
+| Log CEO loop decisions to `~/.claude/logs/ceo-loop.log` — review weekly | [HMZ](https://github.com/hmzainjamil) |
 
-<a id="tips-api"></a>■ **API Reference (6)**
-
-| Tip | Source |
-|-----|--------|
-| `curl http://127.0.0.1:3100/api/status` — health check (should return `{"status":"ok"}`) | [API](http://127.0.0.1:3100) |
-| `GET /api/goals` — all 20 active strategic goals with progress | [API](http://127.0.0.1:3100) |
-| `GET /api/leads?score_min=80&date=today` — today's hot leads | [API](http://127.0.0.1:3100) |
-| `GET /api/kpi/scorecard?date=today` — today's 28-KPI health report | [API](http://127.0.0.1:3100) |
-| `GET /api/intel/latest` — latest competitor intelligence brief | [API](http://127.0.0.1:3100) |
-| `POST /api/ceo-loop/trigger` — manual CEO cycle (use after major changes) | [API](http://127.0.0.1:3100) |
-
-<a id="tips-eng"></a>■ **Scheduled Engines (5)**
+<a id="tips-bdm"></a>■ **Business Development (6)**
 
 | Tip | Source |
 |-----|--------|
-| Lead engine geo blacklist: India, Pakistan, Bangladesh, Philippines, Israel — hardcoded | [HMZ rule](../hmz-paperclip-lead-engine/) |
-| Content engine quality gate: fail → draft queue, not published — safe failure | [Error handling](../hmz-paperclip-content-engine/) |
-| Intel engine: Meta Ad Library is ground truth — weight 3x over news | [Intel SOP](../hmz-paperclip-intel-engine/) |
-| KPI monitor: >20% below target = RED → CEO escalation within next 6h cycle | [Threshold](../hmz-paperclip-kpi-monitor/) |
-| Trends scanner Mon (most important) — covers weekend announcements | [Schedule logic](../hmz-paperclip-trends-scanner/) |
+| LinkedIn + Indeed only — Upwork/Freelancer.com/PPH permanently blacklisted | [HMZ](https://github.com/hmzainjamil) |
+| Geo blacklist: India, Pakistan, Bangladesh, Philippines, Israel — never target | [HMZ](https://github.com/hmzainjamil) |
+| Cover letter rules: no formatting fluff, no skill lists, result-first tone | [HMZ](https://github.com/hmzainjamil) |
+| Per-prospect PDF: include business name, city, brand palette from their URL | [HMZ](https://github.com/hmzainjamil) |
+| Reddit posting cap: max 1 post/day — account on bot-watch, never schedule more | [HMZ](https://github.com/hmzainjamil) |
+| LinkedIn Chrome profile: always `--profile-directory=Profile 1` — never sign out | [HMZ](https://github.com/hmzainjamil) |
 
-<a id="tips-agents"></a>■ **Agent Management (5)**
-
-| Tip | Source |
-|-----|--------|
-| All 50 agents use Tier 0 routing — zero Claude tokens for agent sub-tasks | [G0DM0D3](../hmz-g0dm0d3/) |
-| Agent output quality scores tracked — CEO loop reduces assignments for underperforming agents | [Self-improvement](agents/) |
-| BDM agents skip Upwork/Freelancer.com/PeoplePerHour — LinkedIn and Indeed only | [HMZ platform rule](agents/bdm/) |
-| PPC agents never change client budgets without logging to Paperclip API first | [Audit rule](agents/ppc/) |
-| Content agents never post without passing quality gate (hook strength check) | [Content rule](agents/) |
-
-<a id="tips-debug"></a>■ **Debug (4)**
+<a id="tips-content"></a>■ **Content Engine (5)**
 
 | Tip | Source |
 |-----|--------|
-| API 503 → `launchctl start ai.hmz.paperclip` | [Runbook](launchagents/) |
-| Port 3100 conflict → `lsof -i :3100` to find conflicting process | [Debug](launchagents/) |
-| Company ID always `c5066522-bacc-4a28-b700-6590cbe366ec` — never change | [Config](http://127.0.0.1:3100) |
-| CEO loop logs at `~/Library/Logs/paperclip-ceo-loop.log` | [Log location](launchagents/) |
+| LinkedIn posts: thought leadership, no sales pitch in first post — warm → convert | [HMZ](https://github.com/hmzainjamil) |
+| Use Gemini for first-draft content — cheap, fast, 1M context for brand alignment | [HMZ](https://github.com/hmzainjamil) |
+| Case study format: problem → solution → results (ROAS numbers required) | [HMZ](https://github.com/hmzainjamil) |
+| Reddit: value-first, no agency links in body — 30% of posts get removed otherwise | [HMZ](https://github.com/hmzainjamil) |
+| Content calendar: batch-generate week ahead on Sunday via CEO loop | [HMZ](https://github.com/hmzainjamil) |
 
----
+<a id="tips-reports"></a>■ **Audit PDF Reports (5)**
+
+| Tip | Source |
+|-----|--------|
+| 11 pages minimum per audit — client expects comprehensive, not surface-level | [HMZ](https://github.com/hmzainjamil) |
+| Brand palette from client URL: Playwright screenshot + color extraction (top 5 colors) | [HMZ](https://github.com/hmzainjamil) |
+| ReportLab: never `canvas.drawString` for body — always `platypus.Paragraph` | [HMZ](https://github.com/hmzainjamil) |
+| Include competitor benchmarks in every audit — makes report 3x more valuable | [HMZ](https://github.com/hmzainjamil) |
+| Per-prospect cover page: their logo + business name + city pulled automatically | [HMZ](https://github.com/hmzainjamil) |
 
 ## ☠️ STARTUPS / BUSINESSES
 
 | Feature | Replaced |
 |-|-|
-| **Autonomous CEO operations** | Hiring a human COO/CEO ($150K+/yr) |
-| **50-agent org management** | [Trello](https://trello.com), [Asana](https://asana.com), [Monday](https://monday.com) — passive task boards, not autonomous |
-| **Daily lead engine** | [Clay](https://clay.com), [Instantly](https://instantly.ai) — manual trigger, per-lead pricing |
-| **Daily content engine** | [Taplio](https://taplio.com), [Buffer](https://buffer.com), [Hootsuite](https://hootsuite.com) — no generation |
-| **Daily competitor intel** | [Crayon](https://crayon.co), [Klue](https://klue.com) — $500+/mo, no autonomous brief |
-| **KPI monitoring** | [Databox](https://databox.com), [Klipfolio](https://klipfolio.com) — passive dashboards |
-| **Authority matrix** | Unstructured — HMZ decides everything manually (bottleneck) |
-
----
+| **AI CEO Loop** | [Lindy AI](https://lindy.ai), [Beam AI](https://beam.ai), [Artisan](https://artisan.co) |
+| **BDM Pipeline** | [Apollo.io](https://apollo.io), [Outreach](https://outreach.io), [Salesloft](https://salesloft.com) |
+| **Audit PDF Engine** | [AgencyAnalytics](https://agencyanalytics.com), [DashThis](https://dashthis.com), [Databox](https://databox.com) |
+| **Content Engine** | [Buffer](https://buffer.com), [Hootsuite](https://hootsuite.com), [Sprout Social](https://sproutsocial.com) |
+| **Competitor Intel** | [Similarweb](https://similarweb.com), [SEMrush](https://semrush.com), [SpyFu](https://spyfu.com) |
+| **Email Sequences** | [Instantly](https://instantly.ai), [Lemlist](https://lemlist.com), [Smartlead](https://smartlead.ai) |
 
 ## Star History
 
