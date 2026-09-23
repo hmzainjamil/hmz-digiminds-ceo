@@ -4,7 +4,7 @@
 
 <p align="center"><a href="https://github.com/hmzainjamil/hmz-digiminds-ceo">Repository</a> · <a href="https://github.com/hmzainjamil/hmz-digiminds-ceo/commits/main">Commits</a> · <a href="https://github.com/hmzainjamil/hmz-digiminds-ceo/issues">Issues</a></p>
 
-<p align="center"><img alt="Visibility" src="https://img.shields.io/badge/visibility-public-blue"> <img alt="Lifecycle" src="https://img.shields.io/badge/lifecycle-active-success"> <img alt="Documentation" src="https://img.shields.io/badge/documentation-deep%20editorial-lightgrey"></p>
+<p align="center"><img alt="Documentation" src="https://img.shields.io/badge/documentation-deep%20editorial-lightgrey"> <img alt="Lifecycle" src="https://img.shields.io/badge/lifecycle-active-success"></p>
 
 <!-- HMZ DEEP README v1 -->
 
@@ -12,17 +12,16 @@
 
 | Field | Current state |
 |---|---|
-| Visibility | public |
+| Repository | hmz-digiminds-ceo |
+| Visibility | Public |
 | Lifecycle | Active |
-| Repository size | 33 KB |
-| Default branch | main |
 | Evidence basis | Current repository documentation and source-visible material |
 
 ## Why this exists
 
 DigiMinds Global AI CEO — autonomous digital marketing agency ops. Campaigns, clients, reports, proposals, and growth strategy, zero human oversight.
 
-This README separates documented capabilities from measured evidence and avoids converting roadmap ideas or external assumptions into implementation claims.
+This README has been rebuilt to separate documented functionality from measured evidence. Planned ideas, copied examples, and external assumptions are not treated as implementation facts.
 
 ## 🧠 CONCEPTS
 
@@ -141,9 +140,9 @@ Keep credentials outside the repository, validate untrusted inputs at system bou
 
 ## Limitations
 
-- Planned functionality is not presented as completed functionality.
 - Quantitative claims should be backed by reproducible repository evidence.
-- External provider behavior, limits, and pricing are not inferred from repository documentation.
+- Production readiness is not inferred from documentation alone.
+- External provider behavior and pricing are not treated as repository facts.
 
 
 
